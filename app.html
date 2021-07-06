@@ -11,6 +11,29 @@
   </div>
   <div class="row">
     <select class="box" id="tuningRoot">
+      <option value="0">C tuning</option>
+      <option value="1">C# tuning</option>
+      <option value="2">D tuning</option>
+      <option value="3">D# tuning</option>
+      <option value="4">E tuning</option>
+      <option value="5">F tuning</option>
+      <option value="6">F# tuning</option>
+      <option value="7">G tuning</option>
+      <option value="8">G# tuning</option>
+      <option value="9">A tuning</option>
+      <option value="10">A# tuning</option>
+      <option value="11">B tuning</option>
+    </select>
+    <select class="box" id="tuningType">
+      <option value="standard">Standard</option>
+      <option value="dropped">Dropped</option>
+    </select>
+    <select class="box" id="numStrings">
+      <option value="6">6 strings</option>
+      <option value="7">7 strings</option>
+      <option value="8">8 strings</option>
+    </select>
+    <select class="box" id="scaleRoot">
       <option value="0">C</option>
       <option value="1">C#</option>
       <option value="2">D</option>
@@ -24,34 +47,10 @@
       <option value="10">A#</option>
       <option value="11">B</option>
     </select>
-    <select class="box" id="tuningType">
-      <option value="standard">Standard</option>
-      <option value="dropped">Dropped</option>
-    </select>
-    <select class="box" id="numStrings">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-    </select>
-    <select class="box" id="scaleRoot">
-      <option value="c">C</option>
-      <option value="cS">C#</option>
-      <option value="d">D</option>
-      <option value="dS">D#</option>
-      <option value="e">E</option>
-      <option value="f">F</option>
-      <option value="fS">F#</option>
-      <option value="g">G</option>
-      <option value="gS">G#</option>
-      <option value="a">A</option>
-      <option value="aS">A#</option>
-      <option value="b">B</option>
-    </select>
     <select class="box" id="scaleType">
-      <option value="major">Major</option>
-      <option value="minor">Minor</option>
-      <option value="minor">Harmonic 
-        Minor</option>
+      <option value="major">Major scale</option>
+      <option value="minor">Minor scale</option>
+      <option value="harmonicMinor">Harmonic minor scale</option>
     </select>
     <button class='btn box'>Go</button>
   </div>
