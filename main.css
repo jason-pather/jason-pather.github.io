@@ -2,18 +2,27 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    border-width: 0px;
 }
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-    background: rgba( 48, 18, 14, 1);
+    background: rgba( 94, 34, 36, 1);
 }
 h1{
     text-align: center;
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: white;
+    color: rgba( 204, 160, 91, 1);
+}
+
+h2{
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba( 204, 160, 91, 1);
 }
 
 .box{
@@ -27,8 +36,12 @@ h1{
     padding-right: 30px;
 }
 
+.btn{
+    background: rgba( 204, 160, 91, 1);
+}
+
 .scale{
-    background: rgb(240, 190, 150);
+    background: rgba( 204, 160, 91, 1);
 }
 
 /* Table Styles */
@@ -53,22 +66,25 @@ h1{
 .fl-table td, .fl-table th {
     text-align: center;
     padding: 8px;
+    border-right: 1px solid #f8f8f8;
+    border-left: 1px solid #f8f8f8;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid #f8f8f8;
 }
 
 .fl-table td {
-    border-right: 1px solid #f8f8f8;
     font-size: 12px;
 }
 
 .fl-table thead th {
     color: #ffffff;
-    background: #4FC3A1;
+    background: #354C3C;
 }
 
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
-    background: #324960;
+    background: #354C3C;
 }
 
 .fl-table tr:nth-child(even) {

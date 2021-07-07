@@ -9,7 +9,11 @@
   <div>
     <h1>Guitar Notes</h1>
   </div>
+
   <div class="row">
+    <div>
+      <h2>Guitar setup</h2>
+    </div>
     <select class="box" id="tuningRoot">
       <option value="0">C tuning</option>
       <option value="1">C# tuning</option>
@@ -33,6 +37,13 @@
       <option value="7">7 strings</option>
       <option value="8">8 strings</option>
     </select>
+    <button id="create_btn" class="box btn">Create new</button>
+  </div>
+
+  <div class="row">
+    <div>
+      <h2>Scale</h2>
+    </div>
     <select class="box" id="scaleRoot">
       <option value="0">C</option>
       <option value="1">C#</option>
@@ -52,12 +63,12 @@
       <option value="minor">Minor scale</option>
       <option value="harmonicMinor">Harmonic minor scale</option>
     </select>
-    <button class='btn box'>Go</button>
+    <button id="apply_btn" class="box btn">Show scale</button>
+    <button id="clear_btn" class="box btn">Clear scale</button>
   </div>
 
   <div>
-    <table class="fl-table" id="fretboard">
-    </table>
+    <table class="fl-table" id="fretboard"></table>
   </div>
 
   <script src="app.js"></script>

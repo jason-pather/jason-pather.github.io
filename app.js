@@ -51,8 +51,9 @@ const scaleIntervals = {
     "harmonicMinor": [0, 2, 1, 2, 2, 1, 3, 1]
 }
 
-const button = document.querySelector('.btn');
-button.addEventListener('click', function() {
+const createButton = document.getElementById("create_btn");
+createButton.addEventListener('click', function() {
+    clearFretboard();
     createNew({
         "tuningRoot": parseInt(document.getElementById("tuningRoot").value),
         "tuningType": document.getElementById("tuningType").value,
@@ -63,17 +64,55 @@ button.addEventListener('click', function() {
     );
 });
 
+const clearButton = document.getElementById("clear_btn");
+clearButton.addEventListener('click', function() {
+    clearScale()
+})
+
+const applyButton = document.getElementById("apply_btn");
+applyButton.addEventListener('click', function() {
+    clearScale();
+    highlightScale(
+        parseInt(document.getElementById("scaleRoot").value),
+        document.getElementById("scaleType").value
+    )
+})
+
 function createNew(params) {
     const stringRoots = getStringRoots(params["numStrings"], params["tuningType"], params["tuningRoot"])
     const fretboard = document.getElementById("fretboard");
 
     renderHeader(fretboard)
+    renderFretboard(params["numStrings"], stringRoots, fretboard)
+    highlightScale(params["scaleRoot"], params["scaleType"])
 
-    for (let stringNum = 0; stringNum < params["numStrings"]; stringNum++) {
+}
+
+function renderHeader(fretboard) {
+    const heading = fretboard.createTHead();
+    const cells = [...Array(25).keys()];
+    cells.forEach(cell => {
+        const head = document.createElement("th");
+        head.setAttribute("id", "fret_" + cell)
+        head.innerHTML = cell;
+        heading.appendChild(head)
+    })
+}
+
+function renderFretboard(numStrings, stringRoots, fretboard) {
+    for (let stringNum = 0; stringNum < numStrings; stringNum++) {
         renderString(stringRoots[stringNum], stringNum, fretboard)
     }
+}
 
-    highlightScale(params["scaleRoot"], params["scaleType"])
+function clearFretboard(){
+    document.querySelectorAll(".fl-table")[0].innerHTML = "";
+}
+
+function clearScale() {
+    document.querySelectorAll(".scale").forEach((el) => {
+        el.classList.remove('scale');
+    });
 }
 
 function highlightScale(scaleRoot, scaleType) {
@@ -91,27 +130,12 @@ function highlightNotes(note) {
     });
 }
 
-function renderHeader(fretboard) {
-    const heading = fretboard.createTHead();
-    const header = fretboard.insertRow(0);
-    heading.insertRow(header)
-    const cells = [...Array(25).keys()];
-    cells.forEach(cell => {
-        const head = document.createElement("th");
-        head.setAttribute("id", cell)
-        head.innerHTML = cell;
-        header.appendChild(head)
-    })
-}
-
 function renderString(root, stringNum, fretboard) {
     const row = fretboard.insertRow(stringNum);
     let string = [...Array(25).keys()];
     string = string.map((fret) => (fret + root) % 12);
 
-    string.forEach(fret => {
-        renderFret(fret, row)
-    })
+    string.forEach(fret => renderFret(fret, row))
 }
 
 function renderFret(fret, row) {
