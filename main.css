@@ -4,17 +4,22 @@
     -moz-box-sizing: border-box;
     border-width: 0px;
 }
+:root {
+    --mustard: rgba( 204, 160, 91, 1);
+    --burgandy: rgba( 94, 34, 36, 1);
+    --seaweed: #354C3C;
+  }
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-    background: rgba( 94, 34, 36, 1);
+    background: var(--burgandy);
 }
 h1{
     text-align: center;
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba( 204, 160, 91, 1);
+    color: var(--mustard);
 }
 
 h2{
@@ -22,7 +27,7 @@ h2{
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba( 204, 160, 91, 1);
+    color: var(--mustard);
 }
 
 .box{
@@ -37,11 +42,24 @@ h2{
 }
 
 .btn{
-    background: rgba( 204, 160, 91, 1);
+    background: var(--mustard);
 }
 
 .scale{
-    background: rgba( 204, 160, 91, 1);
+    background: var(--mustard);
+}
+
+.marker{
+    font-weight: bolder;
+}
+
+.chord{
+    color: var(--seaweed);
+    font-weight: bold;
+    border-right: 1px var(--burgandy);
+    border-left: 1px var(--burgandy);
+    border-top: 1px var(--burgandy);
+    border-bottom: 1px var(--burgandy);
 }
 
 /* Table Styles */
@@ -78,13 +96,13 @@ h2{
 
 .fl-table thead th {
     color: #ffffff;
-    background: #354C3C;
+    background: var(--seaweed);
 }
 
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
-    background: #354C3C;
+    background: var(--seaweed);
 }
 
 .fl-table tr:nth-child(even) {

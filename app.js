@@ -84,6 +84,7 @@ function createNew(params) {
 
     renderHeader(fretboard)
     renderFretboard(params["numStrings"], stringRoots, fretboard)
+    highlightMarker()
     highlightScale(params["scaleRoot"], params["scaleType"])
 
 }
@@ -93,7 +94,7 @@ function renderHeader(fretboard) {
     const cells = [...Array(25).keys()];
     cells.forEach(cell => {
         const head = document.createElement("th");
-        head.setAttribute("id", "fret_" + cell)
+        head.setAttribute("id", "0_" + cell + "_0")
         head.innerHTML = cell;
         heading.appendChild(head)
     })
@@ -125,23 +126,31 @@ function highlightScale(scaleRoot, scaleType) {
 }
 
 function highlightNotes(note) {
-    document.querySelectorAll("#" + scaleNotes[note]).forEach((el) => {
+    document.querySelectorAll("[id$='" + scaleNotes[note] + "']").forEach((el) => {
         el.classList.add('scale');
+    });
+}
+
+function highlightMarker() {
+    document.querySelectorAll("[id*='_0_'], [id*='_0_']").forEach((el) => {
+        el.classList.add('marker');
     });
 }
 
 function renderString(root, stringNum, fretboard) {
     const row = fretboard.insertRow(stringNum);
     let string = [...Array(25).keys()];
-    string = string.map((fret) => (fret + root) % 12);
-
-    string.forEach(fret => renderFret(fret, row))
+    string.forEach(fret => renderFret(fret, row, stringNum, root))
 }
 
-function renderFret(fret, row) {
+function renderFret(fret, row, stringNum, root) {
     const cell = row.insertCell()
-    cell.setAttribute("id", displayNotes[fret])
-    cell.innerHTML = displayNotes[fret];
+    cell.setAttribute("id", stringNum + 1 + "_" + fret + "_" + noteFromFretNumber(fret, root));
+    cell.innerHTML = noteFromFretNumber(fret, root);
+}
+
+function noteFromFretNumber(fret, root) {
+    return displayNotes[(fret + root) % 12];
 }
 
 function getStringRoots(numStrings, tuningType, tuningRoot) {
