@@ -48,7 +48,10 @@ const semitoneDiffs = {
 const scaleIntervals = {
     "major": [0, 2, 2, 1, 2, 2, 2, 1],
     "minor": [0, 2, 1, 2, 2, 1, 2, 2],
-    "harmonicMinor": [0, 2, 1, 2, 2, 1, 3, 1]
+    "harmonicMinor": [0, 2, 1, 2, 2, 1, 3, 1],
+    "hungarianMinor": [0, 2, 1, 3, 1, 1, 3, 1],
+    "diminished": [0, 2, 1, 2, 1, 2, 1, 2, 1],
+    
 }
 
 const createButton = document.getElementById("create_btn");
